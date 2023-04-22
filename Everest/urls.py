@@ -14,7 +14,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.conf.urls.static import static
 from django.urls import path, include
+
+from Everest import settings
+from Everest.settings import BASE_DIR
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -22,5 +26,5 @@ urlpatterns = [
     path('course/', include('Course.urls')),
     path('location/', include('location.urls')),
     path('teacher/', include('Teacher.urls')),
-    path('textbook/', include('textbook.urls')),
 ]
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

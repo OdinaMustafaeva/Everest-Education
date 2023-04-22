@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="everest" uuid="0029d6b2-a045-4605-877d-e48acd47e68c">
+    <data-source source="LOCAL" name="everest-education" uuid="9384b5a5-5cd4-4fe5-9189-a3850162c55a">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>

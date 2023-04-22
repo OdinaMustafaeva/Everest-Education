@@ -5,3 +5,7 @@ from django.shortcuts import render
 
 def locations(request):
     return render(request, 'location_templates/main.html')
+
+
+def location_detail(request, pk):
+    pass

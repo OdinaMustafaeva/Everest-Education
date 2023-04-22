@@ -67,12 +67,12 @@
                         class="bi bi-chevron-down dropdown-indicator"></i></a>
                     <ul>
                         <li><a href="#">everest chat</a></li>
-                        <li class="dropdown"><a href="{% url 'textbook:textbook_' %}"><span>Textbook</span> <i
+                        <li class="dropdown"><a href="{% url 'course:Course_main' %}"><span>Courses</span> <i
                                 class="bi bi-chevron-down dropdown-indicator"></i></a>
                             <ul>
-                                <li><a href="#"></a>english</li>
-                                <li><a href="#"></a>russian</li>
-                                <li><a href="#"></a>korean</li>
+                                <li><a href="{% url 'course:course_name' english %}"></a>english</li>
+                                <li><a href="{% url 'course:course_name' russian %}"></a>russian</li>
+                                <li><a href="{% url 'course:course_name' korean %}"></a>korean</li>
                             </ul>
                         </li>
                         <li><a href="#ielts">ielts</a></li>
@@ -130,7 +130,6 @@
                     <li><a href="{% url 'base:home' %}">Home</a></li>
                     <li><a href="#About">About us</a></li>
                     <li><a href="{% url 'course:Course_main' %}">Courses</a></li>
-                    <li><a href="{% url 'textbook:textbook_' %}">Textbooks</a></li>
                     <li><a href="{% url 'location:location_' %}">location</a></li>
                 </ul>
             </div>
@@ -138,11 +137,11 @@
             <div class="col-lg-2 col-6 footer-links">
                 <h4>Our Courses</h4>
                 <ul>
-                    <li><a href="{% url 'textbook:textbook_' %}">English</a></li>
-                    <li><a href="{% url 'textbook:textbook_' %}">korean</a></li>
-                    <li><a href="{% url 'textbook:textbook_' %}">russian</a></li>
-                    <li><a href="{% url 'textbook:textbook_' %}">math</a></li>
-                    <li><a href="{% url 'textbook:textbook_' %}">history</a></li>
+                    <li><a href="">English</a></li>
+                    <li><a href="">korean</a></li>
+                    <li><a href="">russian</a></li>
+                    <li><a href="">math</a></li>
+                    <li><a href="">history</a></li>
                 </ul>
             </div>
 

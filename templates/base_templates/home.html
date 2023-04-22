@@ -30,14 +30,14 @@
                     <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
                         <div class="icon-box">
                             <div class="icon"><i class="bi bi-command"></i></div>
-                            <h4 class="title"><a href="{% url 'base:home' %}" class="stretched-link">CHAT</a></h4>
+                            <h4 class="title"><a href="{% url 'base:home' %}" class="stretched-link">Posts</a></h4>
                         </div>
                     </div><!--End Icon Box -->
 
                     <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
                         <div class="icon-box">
                             <div class="icon"><i class="bi bi-command"></i></div>
-                            <h4 class="title"><a href="{% url 'base:home' %}" class="stretched-link">News</a></h4>
+                            <h4 class="title"><a href="{% url 'base:home' %}" class="stretched-link">Courses</a></h4>
                         </div>
                     </div><!--End Icon Box -->
 
@@ -51,7 +51,7 @@
                     <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="500">
                         <div class="icon-box">
                             <div class="icon"><i class="bi bi-command"></i></div>
-                            <h4 class="title"><a href="" class="stretched-link">Our courses</a></h4>
+                            <h4 class="title"><a href="" class="stretched-link">location</a></h4>
                         </div>
                     </div><!--End Icon Box -->
 
@@ -59,7 +59,6 @@
             </div>
         </div>
 
-        </div>
     </section>
     <main id="about">
 
@@ -144,33 +143,15 @@
 
             <div class="clients-slider swiper">
                 <div class="swiper-wrapper align-items-center">
-                    <div class="swiper-slide"><img src="../static/assets/img/clients/img_1.png" class="img-fluid"
-                                                   alt="">
-                    </div>
-                    <div class="swiper-slide"><img src="../static/assets/img/clients/img_2.png" class="img-fluid"
-                                                   alt="">
-                    </div>
-                    <div class="swiper-slide"><img src="../static/assets/img/clients/img_3.png" class="img-fluid"
-                                                   alt="">
-                    </div>
-                    <div class="swiper-slide"><img src="../static/assets/img/clients/img_4.png" class="img-fluid"
-                                                   alt="">
-                    </div>
-                    <div class="swiper-slide"><img src="../static/assets/img/clients/img_5.png" class="img-fluid"
-                                                   alt="">
-                    </div>
-                    <div class="swiper-slide"><img src="../static/assets/img/clients/img_6.png" class="img-fluid"
-                                                   alt="">
-                    </div>
-                    <div class="swiper-slide"><img src="../static/assets/img/clients/img_7.png" class="img-fluid"
-                                                   alt="">
-                    </div>
-                    <div class="swiper-slide"><img src="../static/assets/img/clients/img_8.png" class="img-fluid"
-                                                   alt="">
-                    </div>
+                    {% for i in ielts %}
+                        <div class="swiper-slide">
+                            <img src="{{ i.image.url }}" class="img-fluid"
+                                 alt="">{{ i.ielts }} - <a href="{% url 'teacher:teacher_' %}">{{ i.teacher }}</a>
+                        </div>
+                    {% endfor %}
                 </div>
-            </div>
 
+            </div>
         </div>
     </section><!-- End Clients Section -->
 
@@ -212,81 +193,6 @@
         </div>
     </section><!-- End Stats Counter Section -->
 
-
-
-    <!-- ======= Our Team Section ======= -->
-    <section id="location" class="team">
-        <div class="container" data-aos="fade-up">
-
-            <div class="section-header">
-                <h2>Our locations</h2>
-                <p>10 locations</p>
-            </div>
-
-            <div class="row gy-4">
-
-                <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
-                    <div class="member">
-                        <img src="../static/assets/img/team/img.png" class="img-fluid" alt="">
-                        <h4>everest integro</h4>
-                        <span>Chilonzor metro</span>
-                        <div class="social">
-                            <a href=""><i class="bi bi-twitter"></i></a>
-                            <a href=""><i class="bi bi-facebook"></i></a>
-                            <a href=""><i class="bi bi-instagram"></i></a>
-                            <a href=""><i class="bi bi-linkedin"></i></a>
-                        </div>
-                    </div>
-                </div><!-- End Team Member -->
-
-                <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
-                    <div class="member">
-                        <img src="../static/assets/img/team/img_4.png" class="img-fluid" alt="">
-                        <h4>Sarah Jhinson</h4>
-                        <span>Marketing</span>
-                        <div class="social">
-                            <a href=""><i class="bi bi-twitter"></i></a>
-                            <a href=""><i class="bi bi-facebook"></i></a>
-                            <a href=""><i class="bi bi-instagram"></i></a>
-                            <a href=""><i class="bi bi-linkedin"></i></a>
-                        </div>
-                    </div>
-                </div><!-- End Team Member -->
-
-                <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
-                    <div class="member">
-                        <img src="../static/assets/img/team/img_2.png" class="img-fluid" alt="">
-                        <h4>William Anderson</h4>
-                        <span>Content</span>
-                        <div class="social">
-                            <a href=""><i class="bi bi-twitter"></i></a>
-                            <a href=""><i class="bi bi-facebook"></i></a>
-                            <a href=""><i class="bi bi-instagram"></i></a>
-                            <a href=""><i class="bi bi-linkedin"></i></a>
-                        </div>
-                    </div>
-                </div><!-- End Team Member -->
-
-                <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="400">
-                    <div class="member">
-                        <img src="../static/assets/img/team/img_3.png" class="img-fluid" alt="">
-                        <h4>Amanda Jepson</h4>
-                        <span>Accountant</span>
-                        <div class="social">
-                            <a href=""><i class="bi bi-twitter"></i></a>
-                            <a href=""><i class="bi bi-facebook"></i></a>
-                            <a href=""><i class="bi bi-instagram"></i></a>
-                            <a href=""><i class="bi bi-linkedin"></i></a>
-                        </div>
-                    </div>
-                </div><!-- End Team Member -->
-
-            </div>
-            <button href="{% url 'location:location_' %}" class="btn btn-primary mt-5">More --></button>
-
-        </div>
-
-    </section><!-- End Our Team Section -->
 
 
     <!-- ======= Frequently Asked Questions Section ======= -->
