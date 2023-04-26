@@ -52,40 +52,59 @@
 <header id="header" class="header d-flex align-items-center">
 
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-        <a href="home.html" class="logo d-flex align-items-center">
+        <a href="{% url 'base:home' %}" class="logo d-flex align-items-center">
             <!-- Uncomment the line below if you also wish to use an image logo -->
             <!-- <img src="assets/img/logo.png" alt=""> -->
-            <h1 style="color:blue;">Everest education<span></span></h1>
+            <h1 style="color:blue;" href="{% url 'base:home' %}">Everest education<span></span></h1>
         </a>
         <nav id="navbar" class="navbar">
             <ul style="color:green;">
                 <li><a href="{% url 'base:home' %}">Home</a></li>
-                <li><a href="#about">About</a></li>
+                <li><a href="/#about">About</a></li>
                 <li><a href="{% url 'teacher:teacher_' %}">Teachers</a></li>
                 <li><a href="{% url 'course:Course_main' %}">Courses</a></li>
                 <li class="dropdown"><a href="#"><span>need</span> <i
                         class="bi bi-chevron-down dropdown-indicator"></i></a>
                     <ul>
-                        <li><a href="#">everest chat</a></li>
+                        <li><a href="{% url 'base:chat' %}">everest chat</a></li>
                         <li class="dropdown"><a href="{% url 'course:Course_main' %}"><span>Courses</span> <i
                                 class="bi bi-chevron-down dropdown-indicator"></i></a>
                             <ul>
-                                <li><a href="{% url 'course:course_name' english %}"></a>english</li>
-                                <li><a href="{% url 'course:course_name' russian %}"></a>russian</li>
-                                <li><a href="{% url 'course:course_name' korean %}"></a>korean</li>
+                                <li><a href="{% url 'course:Course_main' %}"></a>english</li>
+                                <li><a href="{% url 'course:Course_main' %}"></a>russian</li>
+                                <li><a href="{% url 'course:Course_main' %}"></a>korean</li>
                             </ul>
                         </li>
-                        <li><a href="#ielts">ielts</a></li>
+                        <li><a href="/#ielts">ielts</a></li>
                     </ul>
                 </li>
                 <li><a href="{% url 'location:location_' %}">locations</a></li>
             </ul>
+            <form method="POST">
+                {% csrf_token %}
+                {{ login_form }}
+                {% if user.is_authenticated %}
+                    <button class="btn btn-primary" style="background-color: red; width: 80px" type="submit"><a
+                            href="/logout/">Logout</a></button>
+                    <button class="btn btn-primary" style="border-radius: 150px; background-color: plum" type="submit">
+                        <a
+                                href="/profile/">{{ user.username|slice:4 }}...</a></button>
+
+                {% else %}
+                    <button class="btn btn-primary" style="background-color: yellow;" type="submit"><a
+                            href="/login">Login</a></button>
+                    <button class="btn btn-primary" style="background-color: green;" type="submit"><a href="/register/">Sign
+                        up</a></button>
+                {% endif %}
+            </form>
+
+
         </nav><!-- .navbar -->
 
         <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
         <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
-
     </div>
+
 </header>
 
 <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>

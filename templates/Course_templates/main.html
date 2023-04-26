@@ -45,6 +45,13 @@
 
         </div>
     </section>
+    {% if user.is_staff %}
+        <div>
+            <button style="background-color: red"><a href="{% url 'course:new_add' %}">ADD COURSE</a>
+            </button>
+        </div>
+    {% endif %}
+
     <form class="d-flex" role="search" action="{% url 'course:course_search' %}" method="post">
         {% csrf_token %}
         <input class="form-control me-2" type="search" name="search_course"
@@ -83,10 +90,10 @@
                                 <b style="color:plum;">Teacher: </b><a href="
                                         {% url 'teacher:teacher_detail'  cour.teacher_id %}">{{ cour.teacher }}</a>
                             </h5>
-                            <h5 class="title">
-                                <b style="color:plum;">Location: </b>
-                                <a href="{% url 'location:location_detail' cour.teacher.work_id %}">{{ cour.teacher.work }}</a>
-                            </h5>
+                            {#                        <h5 class="title">#}
+                            {#                            <b style="color:plum;">Location: </b>#}
+                            {#                            <a href="{% url 'location:location_detail' cour.teacher.work_id %}">{{ cour.teacher.work }}</a>#}
+                            {#                        </h5>#}
                             <p class="post-date">
                                 <b>{{ cour.daytime }}</b>
                             </p>

@@ -5,7 +5,6 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('base', '0008_alter_teacher_image'),
     ]
@@ -14,6 +13,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='teacher',
             name='subject',
-            field=models.ForeignKey(default='english', on_delete=django.db.models.deletion.CASCADE, to='base.subjects'),
+            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='base.subjects')
         ),
     ]

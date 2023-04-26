@@ -30,28 +30,31 @@
                     <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
                         <div class="icon-box">
                             <div class="icon"><i class="bi bi-command"></i></div>
-                            <h4 class="title"><a href="{% url 'base:home' %}" class="stretched-link">Posts</a></h4>
+                            <h4 class="title"><a href="{% url 'base:chat' %}" class="stretched-link">Chat</a></h4>
                         </div>
                     </div><!--End Icon Box -->
 
                     <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
                         <div class="icon-box">
                             <div class="icon"><i class="bi bi-command"></i></div>
-                            <h4 class="title"><a href="{% url 'base:home' %}" class="stretched-link">Courses</a></h4>
+                            <h4 class="title"><a href="{% url 'course:Course_main' %}"
+                                                 class="stretched-link">Courses</a></h4>
                         </div>
                     </div><!--End Icon Box -->
 
                     <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
                         <div class="icon-box">
                             <div class="icon"><i class="bi bi-command"></i></div>
-                            <h4 class="title"><a href="{% url 'base:home' %}" class="stretched-link">Text books</a></h4>
+                            <h4 class="title"><a href="{% url 'teacher:teacher_' %}" class="stretched-link">teacher</a>
+                            </h4>
                         </div>
                     </div><!--End Icon Box -->
 
                     <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="500">
                         <div class="icon-box">
                             <div class="icon"><i class="bi bi-command"></i></div>
-                            <h4 class="title"><a href="" class="stretched-link">location</a></h4>
+                            <h4 class="title"><a href="{% url 'location:location_' %}"
+                                                 class="stretched-link">location</a></h4>
                         </div>
                     </div><!--End Icon Box -->
 
@@ -258,7 +261,8 @@
                             </h3>
                             <div id="faq-content-3" class="accordion-collapse collapse" data-bs-parent="#faqlist">
                                 <div class="accordion-body">
-                                    Ha allbatta kurslar haqida shu yerda ma'lumot oling ---> <a href="">Courses</a>
+                                    Ha allbatta kurslar haqida shu yerda ma'lumot oling ---> <a
+                                        href="{% url 'course:Course_main' %}">Courses</a>
                                 </div>
                             </div>
                         </div><!-- # Faq item-->
@@ -275,7 +279,8 @@
                                 <div class="accordion-body">
                                     O'qtuvchilarimiz ning har biri ish ishini ustasi bo'lib shuncha bolalar ning
                                     masulyati olgan holda biz o'qtuvchilarni Yaxshisizni tanlashga harakat qilganmiz
-                                    O'qtuvchilar haqida m'alumot olish uchun --- > <a href="">Techers</a>
+                                    O'qtuvchilar haqida m'alumot olish uchun --- > <a
+                                        href="{% url 'teacher:teacher_' %}">Techers</a>
                                 </div>
                             </div>
 

@@ -33,9 +33,15 @@
                     <b style="color:red;">student count: </b>
                     <a>{{ student }}</a>
                 </h5>
+                {% if user.is_staff %}
+                    <button><a href="{% url 'course:course_edit' course.id %}">Edit course</a>></button>
+                    <button><a href="{% url 'course:course_delete' course.id %}">delete course</a>></button>
+                {% endif %}
+            </article>
+
 
         </div>
-        </article>
+
     </div>
 </div>
 </div>

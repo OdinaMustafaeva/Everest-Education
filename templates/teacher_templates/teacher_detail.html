@@ -1,10 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<div class="col-md-4 card border">
+    <div class="card border mb-4 box-shadow h-50">
+        <div class="col-xl-4 col-md-6">
+            <article>
+                <div class="post-img">
+                    <img src="{{ my_teacher.image.url }}" alt="hi" class="img-fluid">
+                </div>
+                <h5 class="card-title custom-title">
+                    <b style="color:red;">teacher: </b>
+                    <a>{{ my_teacher.name }}</a>
+                </h5>
+                <h5 class="card-title custom-title">
+                    <b style="color:red;">work at: </b>
+                    <a href="{% url 'course:Course_detail' my_teacher.work_id %}">{{ my_teacher.work }}</a>
+                </h5>
+                <h5 class="card-title custom-title">
+                    <b style="color:red;">phone number: </b>
+                    <a>{{ my_teacher.phone_number }}</a>
+                </h5>
+                <h5 class="card-title custom-title">
+                    <b style="color:red;">age: </b>
+                    <a>{{ my_teacher.age }}</a>
+                </h5>
+                <h5 class="card-title custom-title">
+                    <b style="color:red;">description: </b>
+                    <a>{{ my_teacher.victories }}</a>
+                </h5>
+                <h5 class="card-title custom-title">
+                    <b style="color:red;">Since: </b>
+                    <a>{{ my_teacher.since }}</a>
+                </h5>
+            </article>
+            {% if user.is_staff %}
+                <div>
+                    <button style="background-color: red"><a
+                            href="{% url 'teacher:teacher_edit' my_teacher.id %}">edit</a>
+                    </button>
+                    <button style="background-color: red"><a
+                            href="{% url 'teacher:teacher_delete' my_teacher.id %}">delete</a>
+                    </button>
+                </div>
+            {% endif %}
 
-</body>
-</html>
+
+        </div>
+
+    </div>
+</div>
+</div>

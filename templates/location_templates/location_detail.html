@@ -1,10 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<div class="col-md-4 card border">
+    <div class="card border mb-4 box-shadow h-50">
+        <div class="col-xl-4 col-md-6">
+            <article>
+                <div class="post-img">
+                    <img src="{{ location.address.image.url }}" alt="hi" class="img-fluid">
+                </div>
+                <h5 class="card-title custom-title">
+                    <b style="color:red;">address: </b>
+                    <a>{{ location.address }}</a>
+                </h5>
+                <h5 class="card-title custom-title">
+                    <b style="color:red;">phone number 1: </b>
+                    <a>{{ location.phone_number1 }}</a>
+                </h5>
+                <h5 class="card-title custom-title">
+                    <b style="color:red;">phone number 2: </b>
+                    <a>{{ location.phone_number2 }}</a>
+                </h5>
+                <h5 class="card-title custom-title">
+                    <b style="color:red;">work people count: </b>
+                    <a href="{% url 'teacher:teacher_' %}">{{ count_people }}</a>
+                </h5>
+                <h5 class="card-title custom-title">
+                    <b style="color:red;">Since: </b>
+                    <a>{{ location.address.since }}</a>
+                </h5>
+                <h5 class="card-title custom-title">
+                    <b style="color:red;">instagram: </b>
+                    <a>{{ location.instagram}}</a>
+                </h5>
+                <h5 class="card-title custom-title">
+                    <b style="color:red;">telegram: </b>
+                    <a>{{ location.telegram }}</a>
+                </h5>
+            </article>
 
-</body>
-</html>
+
+        </div>
+
+    </div>
+</div>
+</div>

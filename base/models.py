@@ -1,14 +1,31 @@
 from django.db import models
 from django.db.models import SET_NULL
-from django.contrib.auth.models import User, AbstractUser
+from django.contrib.auth.models import AbstractUser, User
+import django.contrib.auth.validators
+import django.utils.timezone
 
 
 # Create your models here.
 
+class Profile(models.Model):
+    username = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_profile")
+    bio = models.TextField(null=True)
+    avatar = models.ImageField(null=True, default="img_2.png", upload_to='media/')
+
+    def __str__(self):
+        return f"{self.username}"
+
+
+class Topic(models.Model):
+    name = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.name
+
 
 class location(models.Model):
     address = models.CharField(max_length=500)
-    image = models.ImageField(null=True)
+    image = models.ImageField(null=True, upload_to='media/')
     since = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -21,7 +38,7 @@ class teacher(models.Model):
     work = models.ForeignKey(location, on_delete=models.CASCADE, null=True, related_name="work_address")
     age = models.IntegerField(null=True)
     victories = models.CharField(null=True)
-    image = models.ImageField(default="img.png")
+    image = models.ImageField(default="img.png", upload_to='media/')
     since = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -37,7 +54,7 @@ class subjects(models.Model):
 
 class course(models.Model):
     level = models.CharField(max_length=100)
-    image = models.ImageField(upload_to="media", default="4317_Y7xt2pm.jpg")
+    image = models.ImageField(upload_to="media/", default="4317_Y7xt2pm.jpg")
     subject = models.ForeignKey(subjects, on_delete=models.CASCADE, related_name="course_subjects")
     teacher = models.ForeignKey(teacher, on_delete=models.CASCADE, related_name="teacher_course")
     daytime = models.CharField(max_length=150)
@@ -56,7 +73,7 @@ class students(models.Model):
 
 
 class contact(models.Model):
-    address = models.ForeignKey(location, on_delete=models.CASCADE, related_name="contact_adress")
+    address = models.ForeignKey(location, on_delete=models.CASCADE, related_name="contact_address")
     phone_number1 = models.CharField(max_length=100)
     phone_number2 = models.CharField(max_length=100, null=True)
     instagram = models.CharField(max_length=150, null=True)
@@ -71,32 +88,9 @@ class ielts(models.Model):
 
     def __str__(self):
         return f"{self.name} - {self.ielts}"
-    # class Post(models.Model):
-#     host = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
-#     topic = models.ForeignKey(subjects, on_delete=models.SET_NULL, null=True)
-#     name = models.CharField(max_length=200)
-#     description = models.TextField(null=True, blank=True)
-#     participants = models.ManyToManyField(
-#         User, related_name='participants', blank=True)
-#     updated = models.DateTimeField(auto_now=True)
-#     created = models.DateTimeField(auto_now_add=True)
-#
-#     class Meta:
-#         ordering = ['-updated', '-created']
-#
-#     def __str__(self):
-#         return self.name
-#
-#
-# class Message(models.Model):
-#     user = models.ForeignKey(User, on_delete=models.CASCADE)
-#     Post = models.ForeignKey(Post, on_delete=models.CASCADE)
-#     body = models.TextField()
-#     updated = models.DateTimeField(auto_now=True)
-#     created = models.DateTimeField(auto_now_add=True)
-#
-#     class Meta:
-#         ordering = ['-updated', '-created']
-#
-#     def __str__(self):
-#         return self.body[0:50]
+
+
+class chat(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="chat_user")
+    text = models.TextField()
+    time = models.DateTimeField(auto_now_add=True)

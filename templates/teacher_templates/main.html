@@ -6,9 +6,14 @@
 
             <div class="section-header">
                 <h2>Teachers</h2>
-                <p>o'qtuvchilar va ular haqidagi ma'lumotlar</p>
+                <p>{{ teacher.count }} teacher</p>
             </div>
-
+            {% if user.is_staff %}
+                <div>
+                    <button style="background-color: red"><a href="{% url 'teacher:new_add' %}">ADD teacher</a>
+                    </button>
+                </div>
+            {% endif %}
             <div class="slides-3 swiper" data-aos="fade-up" data-aos-delay="100">
                 <div class="swiper-wrapper">
                     {% for tea in teacher %}
@@ -19,6 +24,9 @@
                                         <img src="{{ tea.image.url }}"
                                              class="testimonial-img flex-shrink-0" alt="">
                                         <div>
+                                            <p class="post-category"><a
+                                                    href="{% url 'teacher:teacher_detail' tea.id %}">More
+                                                information</a></p>
                                             <h3>{{ tea.name }}</h3>
                                             <h4>{{ tea.phone_number }}</h4>
                                             <div class="stars">
