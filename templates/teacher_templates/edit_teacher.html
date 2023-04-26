@@ -1,0 +1,10 @@
+{% if user.is_staff %}
+    <form class="form" action="" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="form__action">
+            <a class="btn btn--dark" href="{{ request.META.HTTP_REFERER }}">Cancel</a>
+            <button class="btn btn--main" type="submit">Submit</button>
+        </div>
+    </form>
+{% endif %}

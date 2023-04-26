@@ -1,0 +1,27 @@
+{% extends 'base_templates/base.html' %}
+{% block content %}
+    {% if  user.is_authenticated %}
+        <div class="container">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <img src="{{ profile.avatar.url }}">
+                    <h4>{{ profile.bio }}</h4>
+                    <h5 class="card-title"><b style="color: plum">User: </b>{{ user }}</h5>
+                    <h5 class="card-text"><b style="color: plum">password: </b> <em>{{ user.password|slice:7 }}...</em>
+                    </h5>
+                    <h5 class="card-text"><b style="color: plum">is_superuser: </b>{{ user.is_superuser }}</h5>
+                    <h5 class="card-text"><b style="color: plum">is_username: </b>{{ user.username }}</h5>
+                    <h5 class="card-text"><b style="color: plum">email: </b>{{ user.email }}</h5>
+                    <p class="card-text"><small class="text-body-secondary"><b>Date join: </b>{{ user.date_joined }}
+                    </small>
+                    </p>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <h1><a href="/login/">LOGIN</a></h1>
+        <br>
+        <h1><a href="/register/">Sign up</a></h1>
+    {% endif %}
+
+{% endblock %}
