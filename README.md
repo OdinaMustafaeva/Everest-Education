@@ -11,7 +11,7 @@ Everest Education learning center
 
 ## Teacher
 ![image](https://user-images.githubusercontent.com/113756535/234894041-ba2a792a-c791-4e5d-82d5-cb00ff79fae4.png)
-##Teacher detail
+## Teacher detail
 ![image](https://user-images.githubusercontent.com/113756535/234894663-d30cd7d6-b519-4c30-8435-c998e465f0c5.png)
 
 ## Courses
