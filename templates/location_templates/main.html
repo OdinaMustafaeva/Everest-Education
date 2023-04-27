@@ -3,7 +3,9 @@
 {% block content %}
     <section id="location" class="team">
         <div class="container" data-aos="fade-up">
-
+            {% if user.is_staff %}
+                <button><a href="{% url 'location:new_add' %}">add location</a></button>
+            {% endif %}
             <div class="section-header">
                 <h2>Our locations</h2>
                 <p>{{ location.count }} location</p>
@@ -14,7 +16,7 @@
 
                     <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
                         <div class="member">
-                            <img src="{{ loca.address.image.url }}" class="img-fluid"
+                            <img src="{{ loca.image.url }}" class="img-fluid"
                                  alt="hi">
                             <p class="post-category"><a href="{% url 'location:location_detail' loca.id %}">More
                                 information</a></p>
@@ -23,7 +25,8 @@
                             <span>{{ loca.phone_number2 }}</span>
                             <div class="social">
                                 <a href="https://t.me/{{ loca.telegram }}/"><i class="bi-telegram"></i></a>
-                                <a href="https://www.instagram.com/{{ loca.instagram }}/"><i class="bi bi-instagram"></i></a>
+                                <a href="https://www.instagram.com/{{ loca.instagram }}/"><i
+                                        class="bi bi-instagram"></i></a>
                             </div>
                         </div>
                     </div><!-- End Team Member -->

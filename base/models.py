@@ -17,23 +17,27 @@ class Profile(models.Model):
 
 
 class Topic(models.Model):
-    name = models.CharField(max_length=200)
+    name = models.CharField(max_length=200, unique=True)
 
     def __str__(self):
         return self.name
 
 
 class location(models.Model):
-    address = models.CharField(max_length=500)
+    address = models.CharField(max_length=500, unique=True)
     image = models.ImageField(null=True, upload_to='media/')
     since = models.DateTimeField(auto_now_add=True)
+    phone_number1 = models.CharField(max_length=100)
+    phone_number2 = models.CharField(max_length=100, null=True)
+    instagram = models.CharField(max_length=150, null=True)
+    telegram = models.CharField(max_length=200, null=True)
 
     def __str__(self):
         return self.address
 
 
 class teacher(models.Model):
-    name = models.ForeignKey(User, on_delete=models.CASCADE, related_name="Teachers")
+    name = models.ForeignKey(User, on_delete=models.CASCADE, related_name="Teachers", unique=True)
     phone_number = models.CharField(max_length=50)
     work = models.ForeignKey(location, on_delete=models.CASCADE, null=True, related_name="work_address")
     age = models.IntegerField(null=True)
@@ -70,14 +74,6 @@ class students(models.Model):
 
     def __str__(self):
         return self.name
-
-
-class contact(models.Model):
-    address = models.ForeignKey(location, on_delete=models.CASCADE, related_name="contact_address")
-    phone_number1 = models.CharField(max_length=100)
-    phone_number2 = models.CharField(max_length=100, null=True)
-    instagram = models.CharField(max_length=150, null=True)
-    telegram = models.CharField(max_length=200, null=True)
 
 
 class ielts(models.Model):
